@@ -1,6 +1,6 @@
 # OpenGL-learning
 
-Just a simple code to draw a triangle.
+Just a simple code to draw a square.
 clone this repository recursively.
 Install and run:-
 
