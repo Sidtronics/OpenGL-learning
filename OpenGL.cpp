@@ -3,7 +3,7 @@
 #include<iostream>
 #include<GL/glew.h>
 #include<GLFW/glfw3.h>
-#include"res/shaders"
+#include"res/shaders.glsl"
 
 void CompileShader(unsigned int* shader, const char* shaderSource, unsigned int shaderType){ 
     *shader = glCreateShader(shaderType);
