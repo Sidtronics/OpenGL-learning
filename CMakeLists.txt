@@ -17,5 +17,11 @@ add_subdirectory(external/GLFW)
 set(BUILD_UTILS OFF CACHE BOOL "" FORCE)
 
 add_subdirectory(external/GLEW/build/cmake)
+add_subdirectory(external/fstream-utils)
 
-target_link_libraries(${PROJECT_NAME} glew_s glfw3 -lGL)
+#Copy resource folder to build directory
+if(NOT CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_CURRENT_BINARY_DIR)
+    FILE(COPY res DESTINATION "${CMAKE_BINARY_DIR}")
+endif()
+
+target_link_libraries(${PROJECT_NAME} fstream_utils glew_s glfw3 -lGL)

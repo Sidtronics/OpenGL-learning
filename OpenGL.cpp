@@ -1,9 +1,10 @@
+#include <string>
 #define WAIT std::cin.get()
 
 #include<iostream>
 #include<GL/glew.h>
 #include<GLFW/glfw3.h>
-#include"res/shaders.glsl"
+#include<futils.h>
 
 void CompileShader(unsigned int* shader, const char* shaderSource, unsigned int shaderType){ 
     *shader = glCreateShader(shaderType);
@@ -98,11 +99,16 @@ int main(){
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
 
+    //Get Shader Source
+    Fstrm shaders("res/shaders");
+    std::string vertexSource = shaders.readBlock("VertexShader");
+    std::string fragmentSource = shaders.readBlock("FragmentShader");
+
     //Create & Complie Shader
     unsigned int vertexShader;
     unsigned int fragmentShader;
-    CompileShader(&vertexShader, vertexSource, GL_VERTEX_SHADER);
-    CompileShader(&fragmentShader, fragmentSource, GL_FRAGMENT_SHADER);
+    CompileShader(&vertexShader, vertexSource.c_str(), GL_VERTEX_SHADER);
+    CompileShader(&fragmentShader, fragmentSource.c_str(), GL_FRAGMENT_SHADER);
 
     //Create & Link Shader Program
     unsigned int shaderProgram = glCreateProgram();
