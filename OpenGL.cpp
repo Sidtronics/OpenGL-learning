@@ -4,7 +4,7 @@
 #include<iostream>
 #include<GL/glew.h>
 #include<GLFW/glfw3.h>
-#include<futils.h>
+#include<txtblocks.h>
 
 void CompileShader(unsigned int* shader, const char* shaderSource, unsigned int shaderType){ 
     *shader = glCreateShader(shaderType);
@@ -100,7 +100,7 @@ int main(){
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
 
     //Get Shader Source
-    Fstrm shaders("res/shaders");
+    Blkfile shaders("res/shaders");
     std::string vertexSource = shaders.readBlock("VertexShader");
     std::string fragmentSource = shaders.readBlock("FragmentShader");
 

@@ -1,5 +1,5 @@
 
-###VertexShader###
+BLK:VertexShader
 
     #version 330 core
 
@@ -13,9 +13,9 @@
         gl_Position = vec4(position, 0.0, 1.0);
     }
 
-###VertexShader###
+BLK;
 
-###FragmentShader###
+BLK:FragmentShader
 
     #version 330 core
 
@@ -27,4 +27,4 @@
         outColor = vec4(_color, 1.0);
     }
 
-###FragmentShader###
+BLK;
