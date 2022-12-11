@@ -24,4 +24,6 @@ if(NOT CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_CURRENT_BINARY_DIR)
     FILE(COPY res DESTINATION "${CMAKE_BINARY_DIR}")
 endif()
 
+target_include_directories(${PROJECT_NAME} PUBLIC external/GLEW/include external/GLFW/include)
+
 target_link_libraries(${PROJECT_NAME} txtblocks glew_s glfw3 -lGL)
